@@ -1,0 +1,23 @@
+.dark-bg {
+  background-color: #0b1c48;
+}
+.dark-text {
+  color: #0b1c48;
+}
+.light-text {
+  color: #20bb80;
+}
+
+.blue-bg {
+  background-color: #a5dfe3;
+}
+
+/* .bg-color {
+  background: rgb(169, 250, 193);
+  background: linear-gradient(
+    90deg,
+    rgba(169, 250, 193, 1) 0%,
+    rgba(173, 228, 230, 1) 43%,
+    rgba(150, 188, 251, 1) 100%
+  );
+} */

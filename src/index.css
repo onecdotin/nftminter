@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap");
+body {
+  margin: 0;
+  font-family: "Plus Jakarta Sans";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: rgb(169, 250, 193);
+  background: linear-gradient(
+    90deg,
+    rgba(169, 250, 193, 1) 0%,
+    rgba(173, 228, 230, 1) 43%,
+    rgba(150, 188, 251, 1) 100%
+  );
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 800;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
