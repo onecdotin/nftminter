@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSnackbar } from "notistack";
 import { uploadImageToIpfs, NftMint, NftStatus } from "../action/nft";
 
@@ -74,11 +74,15 @@ const Form = () => {
   };
 
   return (
-    <div className="max-w-xl lg:max-w-screen-xl mx-auto md:px-32">
-      <div className="shadow-2xl rounded-2xl p-5 py-16 bg-white z-20">
-        <form onSubmit={handleSubmit}>
-          <div className="flex">
-            <div className="md:w-2/5 mr-3">
+    <div className="max-w-xl lg:max-w-screen-xl mx-auto lg:px-32">
+      <div className="shadow-2xl rounded-2xl  bg-white ">
+        <p className="text-2xl font-semibold px-6 pt-4 pb-4 border-b">
+          Mint your NFTs on{" "}
+          <span className="purple-text font-bold">Polygon</span>
+        </p>
+        <form onSubmit={handleSubmit} className="p-5 py-16">
+          <div className="flex flex-wrap">
+            <div className="md:w-2/5 w-full">
               <div className="mb-1 z-20 relative overflow-hidden ">
                 <div className=" rounded-lg mx-4 flex flex-col justify-center items-center h-60 border-dashed border-2 border-black">
                   {image ? (
@@ -110,7 +114,7 @@ const Form = () => {
                 <br />
               </div>
             </div>
-            <div className="md:w-3/5">
+            <div className="md:w-3/5 w-full">
               <div className="mb-6">
                 <label className="dark-text text-lg pb-2 font-semibold">
                   Title <span className="text-red-700">*</span>

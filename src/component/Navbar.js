@@ -20,14 +20,14 @@ const Navbar = () => {
   };
 
   return (
-    <div className="h-20 max-w-xl lg:max-w-screen-xl px-28 mx-auto z-20">
-      <div className="flex justify-between items-center py-3">
-        <img src={logo} alt="logo" className="h-10" />
+    <div className="h-20 max-w-xl lg:max-w-screen-xl lg:px-28 px-8 mx-auto z-20">
+      <div className="flex justify-between items-center py-3 flex-wrap">
+        <img src={logo} alt="logo" className="md:h-10 h-8 mt-2" />
         {address ? (
           <div>
             <button
               onClick={() => setShowDropDown(!showDropDown)}
-              className="bg-gray-200 w-48 py-2 px-3 rounded-3xl dark-bg light-text font-semibold flex items-center"
+              className="bg-gray-200 w-48 mt-2 py-2 px-3 rounded-3xl dark-bg light-text font-semibold flex items-center"
             >
               <img src={url} className="w-6 h-6 rounded-full" />{" "}
               <p className="pl-2 text-sm truncate">{address}</p>
@@ -45,7 +45,7 @@ const Navbar = () => {
         ) : (
           <button
             onClick={() => WalletAuthenticate()}
-            className="bg-gray-200 w-48 py-2 px-3 rounded-3xl dark-bg light-text font-semibold flex items-center"
+            className="bg-gray-200 w-48 mt-2 py-2 px-3 rounded-3xl dark-bg light-text font-semibold flex items-center"
           >
             <img src={url} className="w-6 h-6 rounded-full" />{" "}
             <span className="text-sm pl-2">Connect your wallet</span>
