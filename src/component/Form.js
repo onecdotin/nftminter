@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useSnackbar } from "notistack";
 import { uploadImageToIpfs, NftMint, NftStatus } from "../action/nft";
-
 const Form = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -23,7 +22,8 @@ const Form = () => {
       });
       return;
     }
-    //check image size if less than 3mb
+
+    // check image size if less than 3mb
     if (image.size > 3000000) {
       enqueueSnackbar("Image size should be less than 3mb", {
         variant: "error",
@@ -32,45 +32,47 @@ const Form = () => {
       return;
     }
 
-    setLoading(true);
+    // setLoading(true);
     const fdata = new FormData();
+    // console.log("image", image);
     fdata.append("FILE", image);
     const ipfsHash = await uploadImageToIpfs(fdata);
-    enqueueSnackbar("Image uploaded to IPFS", {
-      variant: "success",
-      autoHideDuration: 2000,
-    });
-    const res = await NftMint(
-      {
-        name: formData.name,
-        description: formData.description,
-        image: ipfsHash.file_hashes[0].Hash,
-        external_url: formData.external_url,
-      },
-      address
-    );
-    enqueueSnackbar("Metadata uploaded to ipfs", {
-      variant: "success",
-      autoHideDuration: 2000,
-    });
-    const myinterval = setInterval(async () => {
-      const stat = await NftStatus(res.nft_ids[0]);
-      if (stat.display == "Creation success") {
-        setLoading(false);
-        clearInterval(myinterval);
-        setTxnId(stat.txn_id);
-        enqueueSnackbar("NFT Minted Successfully!!", {
-          variant: "success",
-          autoHideDuration: 3000,
-        });
-        setFormData({
-          name: "",
-          description: "",
-          external_url: "",
-        });
-        setImage("");
-      }
-    }, 2000);
+    console.log("ipfsHash", ipfsHash);
+    // enqueueSnackbar("Image uploaded to IPFS", {
+    //   variant: "success",
+    //   autoHideDuration: 2000,
+    // });
+    // const res = await NftMint(
+    //   {
+    //     name: formData.name,
+    //     description: formData.description,
+    //     image: ipfsHash.file_hashes[0].Hash,
+    //     external_url: formData.external_url,
+    //   },
+    //   address
+    // );
+    // enqueueSnackbar("Metadata uploaded to ipfs", {
+    //   variant: "success",
+    //   autoHideDuration: 2000,
+    // });
+    // const myinterval = setInterval(async () => {
+    //   const stat = await NftStatus(res.nft_ids[0]);
+    //   if (stat.display == "Creation success") {
+    //     setLoading(false);
+    //     clearInterval(myinterval);
+    //     setTxnId(stat.txn_id);
+    //     enqueueSnackbar("NFT Minted Successfully!!", {
+    //       variant: "success",
+    //       autoHideDuration: 3000,
+    //     });
+    //     setFormData({
+    //       name: "",
+    //       description: "",
+    //       external_url: "",
+    //     });
+    //     setImage("");
+    //   }
+    // }, 2000);
   };
 
   return (

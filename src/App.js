@@ -25,9 +25,6 @@ function App() {
             alt="abstract"
             className="absolute sm:flex hidden right-0 sm:-top-8 md:-top-20 lg:-top-32 sm:mr-8 md:mr-20 w-2/5"
           />
-          {/* <div className=" border h-16 bg-white rounded-t-2xl flex flex-col justify-center px-4">
-            <label className="text-2xl font-bold">Mint your NFT</label>
-          </div> */}
         </div>
       </div>
       <div className="absolute w-full p-2">
